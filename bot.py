@@ -18,7 +18,7 @@ MYSQL_CONFIG = {
     'port': int(os.getenv('DB_PORT', 44404)),
     'database': os.getenv('DB_NAME', 'railway'),
     'user': os.getenv('DB_USER', 'root'),
-    'password': os.getenv('DB_PASSWORD', '')
+    'password': os.getenv('DB_PASSWORD', 'jlCtItyZXPAzzoLBwGlVDfxFWmkUXEtX')
 }
 
 RCON_CONFIG = {
@@ -174,6 +174,17 @@ def main():
     logger.info(f"📊 Check interval: {CHECK_INTERVAL}s")
     logger.info(f"🔌 RCON: {RCON_CONFIG['host']}:{RCON_CONFIG['port']}")
     logger.info(f"🗄️ MySQL: {MYSQL_CONFIG['host']}:{MYSQL_CONFIG['port']}")
+    
+    # Проверка переменных окружения (для отладки)
+    logger.info("🔍 Environment variables check:")
+    logger.info(f"   DB_HOST: {'✅ SET' if os.getenv('DB_HOST') else '❌ NOT SET'}")
+    logger.info(f"   DB_PORT: {'✅ SET' if os.getenv('DB_PORT') else '❌ NOT SET'}")
+    logger.info(f"   DB_USER: {'✅ SET' if os.getenv('DB_USER') else '❌ NOT SET'}")
+    logger.info(f"   DB_PASSWORD: {'✅ SET' if os.getenv('DB_PASSWORD') else '❌ NOT SET (CRITICAL!)'}")
+    logger.info(f"   DB_NAME: {'✅ SET' if os.getenv('DB_NAME') else '❌ NOT SET'}")
+    logger.info(f"   RCON_HOST: {'✅ SET' if os.getenv('RCON_HOST') else '❌ NOT SET'}")
+    logger.info(f"   RCON_PASSWORD: {'✅ SET' if os.getenv('RCON_PASSWORD') else '❌ NOT SET'}")
+    
     logger.info("=" * 60)
     
     # Проверка RCON
